@@ -11,8 +11,8 @@ namespace ContaBancaria
 
             while (true)
             {
-                Console.BackgroundColor = ConsoleColor.White;
-                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                Console.ForegroundColor = ConsoleColor.Gray;
 
                 Console.WriteLine("*****************************************************");
                 Console.WriteLine("                                                     ");
@@ -41,7 +41,7 @@ namespace ContaBancaria
                 {
                     Console.BackgroundColor = ConsoleColor.White;
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.WriteLine("\nBanco Zantander com Z - O seu Futuro começa aqui!");
+                    Console.WriteLine("\nBanco Zantander com Z - Venha ficar rico você também!");
                     Sobre();
                     Console.ResetColor();
                     System.Environment.Exit(0);
