@@ -105,7 +105,7 @@ namespace ContaBancaria
         {
             Console.WriteLine("\n*********************************************************");
             Console.WriteLine("Projeto Desenvolvido por: ");
-            Console.WriteLine("Generation Brasil - generation@generation.org"); //mudar!
+            Console.WriteLine("Ingrid Manfrin - ingridevelyn.manfrin@gmail.com");
             Console.WriteLine("github.com/ingridmanfrin/ContaBancaria");
             Console.WriteLine("*********************************************************");
         }
