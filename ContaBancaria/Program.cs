@@ -44,42 +44,49 @@ namespace ContaBancaria
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Criar Conta\n\n");
                         Console.ResetColor();
+                        KeyPress();
                         break;
                     case 2:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Listar todas as Contas\n\n");
                         Console.ResetColor();
-
+                        KeyPress();
                         break;
                     case 3:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Consultar dados da Conta - por número\n\n");
                         Console.ResetColor();
+                        KeyPress();
                         break;
                     case 4:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Atualizar dados da Conta\n\n");
                         Console.ResetColor();
+                        KeyPress();
                         break;
                     case 5:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Apagar a Conta\n\n");
                         Console.ResetColor();
+                        KeyPress();
                         break;
                     case 6:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Saque\n\n");
                         Console.ResetColor();
+                        KeyPress();
                         break;
                     case 7:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Depósito\n\n");
                         Console.ResetColor();
+                        KeyPress();
                         break;
                     case 8:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Transferência entre Contas\n\n");
                         Console.ResetColor();
+                        KeyPress();
                         break;
                     case 9:
                         Console.BackgroundColor = ConsoleColor.White;
@@ -87,6 +94,7 @@ namespace ContaBancaria
                         Console.WriteLine($"\nBanco {nomeBanco} - Construindo Futuros Financeiros Juntos!");
                         Sobre();
                         Console.ResetColor();
+                        KeyPress();
                         break;
                     default:
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -98,7 +106,6 @@ namespace ContaBancaria
                 }
             }
         }
-
         static void Sobre()
         {
             Console.WriteLine("\n*********************************************************");
