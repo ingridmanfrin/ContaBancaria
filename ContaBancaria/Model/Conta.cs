@@ -7,6 +7,8 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ContaBancaria.Model
 {
+    //Instanciar a Classe é criar um, ou vários objetos dela
+    //A classe é a forma o objeto é o bolo
     // criando novo tipo  de dado chamado Conta
     public class Conta
     {
@@ -20,7 +22,7 @@ namespace ContaBancaria.Model
         private string titular = string.Empty;
         private decimal saldo;
 
-        //Metodo Construtor: cria um objeto e preenche os atributos da classe, com os parâmetros passados no construtor:
+        //Metodo Construtor: cria um novo objeto e preenche os atributos da classe, com os parâmetros passados no construtor:
         public Conta(int id, int agencia, int tipo, string titular, decimal saldo)
         {
             this.numero = id;
