@@ -32,6 +32,12 @@ namespace ContaBancaria.Model
             this.saldo = saldo;
         }
 
+        //*** Polimorfismo de Sobrecarga(que é feita dentro da própria Classe)!
+        //Construtor vazio (tem assinatura diferente do de cima) 
+        //construtor vazio pode ser usado para fazer teste, validação de dados:
+        //ou tbm criar um metodo com menos algum parâmetro que o de cima por exemplo:
+        public Conta() { }
+
         //Método de Acesso:
         //métodos SET servem para modificar os atributos.
         //métodos GET servem para ler os dados dos atributos.
@@ -86,7 +92,7 @@ namespace ContaBancaria.Model
             this.saldo = saldo;
         }
 
-        public bool Sacar(decimal valor)
+        public virtual bool Sacar(decimal valor)
         {
             if(this.saldo < valor)
             {
@@ -105,7 +111,7 @@ namespace ContaBancaria.Model
             this.SetSaldo(this.saldo + valor);
         }
 
-        public void Visualizar()
+        public virtual void Visualizar()
         {
             string tipo= "";  //mesma coisa seria por: string tipo= string.empty;
 
@@ -127,7 +133,7 @@ namespace ContaBancaria.Model
             Console.WriteLine($"Número da Agência: {this.agencia}");
             Console.WriteLine($"Tipo da Conta: {tipo}");
             Console.WriteLine($"Titular da Conta: {this.titular}");
-            Console.WriteLine($"Saldo da Conta: {this.saldo}");
+            Console.WriteLine($"Saldo da Conta: {(this.saldo).ToString("C")}");
         }
     }
 }

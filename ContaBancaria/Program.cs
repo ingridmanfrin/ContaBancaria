@@ -12,16 +12,31 @@ namespace ContaBancaria
             string nomeBanco = "Zantander";
 
             Conta c1 = new Conta(1, 123, 1, "Gaspar", 1000000.00M);
-
             c1.Visualizar();
             c1.SetNumero(345);
             c1.Visualizar();
 
             c1.Sacar(1000);
-            c1.Visualizar();  
-            
+            c1.Visualizar();
+
             c1.Depositar(5000);
-            c1.Visualizar();    
+            c1.Visualizar();
+
+            ContaCorrente cc1 = new ContaCorrente(2, 123, 1, "Samantha", 100000000.00M, 1000.00M);
+
+            cc1.Visualizar();
+            cc1.Sacar(200000000.00M);
+            cc1.Visualizar();
+            cc1.Depositar(5000);
+            cc1.Visualizar();
+
+            ContaPoupanca cp1 = new ContaPoupanca(3, 333, 2, "Alana", 15000.00M, 05);
+
+            cp1.Visualizar();
+            cp1.Sacar(1000.00M);
+            cp1.Visualizar();
+            cp1.Depositar(5000);
+            cp1.Visualizar();
 
             while (opcao != 9)
             {
