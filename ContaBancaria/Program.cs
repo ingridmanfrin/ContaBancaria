@@ -1,4 +1,5 @@
-﻿using ContaBancaria.Model;
+﻿using ContaBancaria.Controller;
+using ContaBancaria.Model;
 using System;
 
 namespace ContaBancaria
@@ -8,24 +9,19 @@ namespace ContaBancaria
         private static ConsoleKeyInfo consoleKeyInfo;
         static void Main(string[] args)
         {
-            int opcao = -1;
+            int opcao = -1, agencia, tipo, aniversario;
+            string? titular;
+            decimal saldo, limite;
             string nomeBanco = "Zantander";
 
-            ContaCorrente cc1 = new ContaCorrente(2, 123, 1, "Samantha", 100000000.00M, 1000.00M);
+            //objeto criado para acessar a classe ContaController (uma criação de um objeto novo de ContaController)
+            ContaController contas = new();
 
-            cc1.Visualizar();
-            cc1.Sacar(200000000.00M);
-            cc1.Visualizar();
-            cc1.Depositar(5000);
-            cc1.Visualizar();
+            ContaCorrente cc1 = new ContaCorrente(contas.GerarNumero(), 123, 1, "Samantha", 100000000.00M, 1000.00M);
+            contas.Cadastrar(cc1);
 
-            ContaPoupanca cp1 = new ContaPoupanca(3, 333, 2, "Alana", 15000.00M, 05);
-
-            cp1.Visualizar();
-            cp1.Sacar(1000.00M);
-            cp1.Visualizar();
-            cp1.Depositar(5000);
-            cp1.Visualizar();
+            ContaPoupanca cp1 = new ContaPoupanca(contas.GerarNumero(), 333, 2, "Alana", 15000.00M, 05);
+            contas.Cadastrar(cp1);
 
             while (opcao != 9)
             {
@@ -61,12 +57,52 @@ namespace ContaBancaria
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Criar Conta\n\n");
                         Console.ResetColor();
+
+                        Console.WriteLine("Digite o Número da Agência: ");
+                        agencia = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Digite o Nome do Titular: ");
+                        titular = Console.ReadLine();
+
+                        //AQUI diz que se a variavel titular for nula(??) é para substituir por uma string empty(vazio), caso não for nula a variavel titular, é para passar o dado atribuido na variavel
+                        titular ??= string.Empty;
+
+                        do
+                        {
+                            Console.WriteLine("Digite o Tipo da Conta: ");
+                            tipo = Convert.ToInt32(Console.ReadLine());
+
+                        } while (tipo != 1 && tipo != 2);
+
+
+                        Console.WriteLine("Digite o Saldo da Conta: ");
+                        saldo = Convert.ToDecimal(Console.ReadLine());
+
+                        switch (tipo)
+                        {
+                            case 1:
+                                Console.WriteLine("Digite o Limite da Conta: ");
+                                limite = Convert.ToDecimal(Console.ReadLine());
+
+                                contas.Cadastrar(new ContaCorrente(contas.GerarNumero(), agencia, tipo, titular, saldo, limite));
+                                break;
+                            case 2:
+                                Console.WriteLine("Digite o Aniversário da Conta: ");
+                                aniversario = Convert.ToInt32(Console.ReadLine());
+
+                                contas.Cadastrar(new ContaPoupanca(contas.GerarNumero(), agencia, tipo, titular, saldo, aniversario));
+                                break;
+                        }
+
                         KeyPress();
                         break;
                     case 2:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Listar todas as Contas\n\n");
                         Console.ResetColor();
+
+                        contas.ListarTodas();
+
                         KeyPress();
                         break;
                     case 3:
