@@ -10,7 +10,7 @@ namespace ContaBancaria.Model
     //Instanciar a Classe é criar um, ou vários objetos dela
     //A classe é a forma o objeto é o bolo
     // criando novo tipo  de dado chamado Conta
-    public class Conta
+    public abstract class Conta
     {
         //Atributos da minha classe:
         //preciso manter o encapsulamento dos meus dados é para não poder alterar dados como numero, agencia então uso os metodos Get e Set
