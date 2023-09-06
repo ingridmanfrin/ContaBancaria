@@ -262,16 +262,14 @@ namespace ContaBancaria
        
         static void Sobre()
         {
-            Console.ResetColor();
-
             Console.WriteLine("\n*********************************************************");
             Console.WriteLine("Projeto Desenvolvido por: ");
             Console.WriteLine("Ingrid Manfrin - ingridevelyn.manfrin@gmail.com");
             Console.WriteLine("github.com/ingridmanfrin/ContaBancaria");
             Console.WriteLine("*********************************************************");
 
-            Console.ResetColor();
         }
+
         static void KeyPress()
         {
             do
