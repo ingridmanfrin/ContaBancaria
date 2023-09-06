@@ -9,9 +9,9 @@ namespace ContaBancaria
         private static ConsoleKeyInfo consoleKeyInfo;
         static void Main(string[] args)
         {
-            int opcao = -1, agencia, tipo, aniversario, numero;
+            int opcao = -1, agencia, tipo, aniversario, numero, numeroDestino;
             string? titular;
-            decimal saldo, limite;
+            decimal saldo, limite, valor;
             string nomeBanco = "Zantander";
 
             //objeto criado para acessar a classe ContaController (uma criação de um objeto novo de ContaController)
@@ -197,18 +197,48 @@ namespace ContaBancaria
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Saque\n\n");
                         Console.ResetColor();
+
+                        Console.WriteLine("Digite o número da Conta: ");
+                        numero = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Digite o valor do Saque: ");
+                        valor = Convert.ToDecimal(Console.ReadLine());
+
+                        contas.Sacar(numero, valor);
+
                         KeyPress();
                         break;
                     case 7:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Depósito\n\n");
                         Console.ResetColor();
+
+                        Console.WriteLine("Digite o número da Conta: ");
+                        numero = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Digite o valor do Depósito: ");
+                        valor = Convert.ToDecimal(Console.ReadLine());
+
+                        contas.Depositar(numero, valor);
+
                         KeyPress();
                         break;
                     case 8:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Transferência entre Contas\n\n");
                         Console.ResetColor();
+
+                        Console.WriteLine("Digite o número da Conta de Origem: ");
+                        numero = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Digite o número da Conta de Destino: ");
+                        numeroDestino = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Digite o valor da Transferência: ");
+                        valor = Convert.ToDecimal(Console.ReadLine());
+
+                        contas.Transferir(numero, numeroDestino, valor);
+
                         KeyPress();
                         break;
                     case 9:
@@ -229,13 +259,18 @@ namespace ContaBancaria
                 }
             }
         }
+       
         static void Sobre()
         {
+            Console.ResetColor();
+
             Console.WriteLine("\n*********************************************************");
             Console.WriteLine("Projeto Desenvolvido por: ");
             Console.WriteLine("Ingrid Manfrin - ingridevelyn.manfrin@gmail.com");
             Console.WriteLine("github.com/ingridmanfrin/ContaBancaria");
             Console.WriteLine("*********************************************************");
+
+            Console.ResetColor();
         }
         static void KeyPress()
         {
